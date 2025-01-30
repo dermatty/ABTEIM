@@ -1,0 +1,10 @@
+[GENERAL]
+interval = 10
+
+[TELEGRAM]   
+token = xxxxxxxxxBBBBBBBBBBBBBBcCCCCCCCCCCC   
+chatids = [0123456767]
+
+[WEBURLS]
+weburls = ["google.com", "orf.at", "butzimausi.de"]
+
