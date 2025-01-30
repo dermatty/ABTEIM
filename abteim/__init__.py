@@ -11,6 +11,6 @@ try:
     __startmode__ = "dev"
 except Exception:
     __startmode__ = "systemd"
-    __appname__ = "guck4"
-    __appabbr__ = "g4"
+    __appname__ = "abteim"
+    __appabbr__ = "abt"
     __version__ = version(__appname__)

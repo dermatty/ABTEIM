@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.12"
 fridagram = "^0.1.15"
 toml = "^0.10.2"
+importlib = "^1.0.4"
 
 [tool.poetry.scripts]
 abteim = "abteim.abteim:start"

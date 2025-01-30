@@ -148,6 +148,16 @@ files = [
 all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2)"]
 
 [[package]]
+name = "importlib"
+version = "1.0.4"
+description = "Backport of importlib.import_module() from Python 2.7"
+optional = false
+python-versions = "*"
+files = [
+    {file = "importlib-1.0.4.zip", hash = "sha256:b6ee7066fea66e35f8d0acee24d98006de1a0a8a94a8ce6efe73a9a23c8d9826"},
+]
+
+[[package]]
 name = "requests"
 version = "2.32.3"
 description = "Python HTTP for Humans."
@@ -295,5 +305,5 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.13"
-content-hash = "e6e40aee729243a3390a42ccdcf111d1fe31d1b2d26978fc0f04f885557786e0"
+python-versions = "^3.12"
+content-hash = "bdc1a8cd517e3976e7ce1e73edc04ab92c9be34b4ff3083c2aa2c5de26f971be"
