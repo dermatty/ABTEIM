@@ -1,12 +1,11 @@
 [Unit]
-Description=Guck4
+Description=abteim
 After=network.target
 
 [Service]
-ExecStart=~/.virtualenvs/abteim/bin/abteim
+ExecStart=/home/USER_XY/.virtualenvs/abteim/bin/abteim
 ExecStop=/usr/bin/pkill -f -15 abteim
 KillMode=process
-
 
 [Install]
 WantedBy=default.target

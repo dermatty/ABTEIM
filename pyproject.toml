@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "abteim"
-version = "0.2.0"
+version = "0.2.3"
 description = ""
 authors = ["dermatty <stephan@untergrabner.at>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 fridagram = "^0.1.15"
 toml = "^0.10.2"
 importlib = "^1.0.4"
