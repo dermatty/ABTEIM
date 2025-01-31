@@ -1,6 +1,6 @@
 #!/home/stephan/.virtualenvs/uptime/bin/python
 
-import requests, time, sys, configparser, json, platform
+import requests, time, sys, configparser, json, platform, datetime
 from urllib3.exceptions import InsecureRequestWarning
 from os.path import expanduser
 import fridagram as fg
@@ -66,6 +66,7 @@ statuses = {
 def start():
 	userhome = expanduser("~")
 	maindir = userhome + "/.abteim/"
+	statusfile = maindir + "webstatus.txt"
 	motd = "ABTEIM website monitoring now on " + str(HOSTNAME) +" ..."
 
 	# Init Logger
@@ -105,14 +106,12 @@ def start():
 			if not ret:
 				raise Exception(cfg0)
 	except Exception as e:
-			print(str(e))
 			logger.error(str(e))
 			sys.exit()
 	fg.send_message(cfg0.token, cfg0.chatids, motd)
 	logger.info("Telegram motd sent!")
 
 	while True:
-
 		for i, (url, old_status_code, downtimestart) in enumerate(website_url):
 			try:
 				web_response = requests.get(url, verify=False, timeout=5)
@@ -142,5 +141,19 @@ def start():
 				website_url[i][1] = status_code
 				website_url[i][2] = newdts
 				r, ok = fg.send_message(cfg0.token, cfg0.chatids, status_answer)
+
+		# write to statusfile
+		try:
+			with open(statusfile, "w") as f:
+				for (url, old_status_code, _) in website_url:
+					url0 = url.replace("https://", "")
+					url0 = url0.replace("http://", "")
+					tstr = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S/")
+					s0 = tstr + url0 + "/" + "UP" if int(status_code) == 200 else "DOWN"
+					s0 += "\n"
+					f.write(s0)
+		except Exception as e:
+			logger.error(str(e))
+
 		time.sleep(interval)
 	
