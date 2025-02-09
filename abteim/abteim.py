@@ -1,11 +1,14 @@
 #!/home/stephan/.virtualenvs/uptime/bin/python
 
+from . import __version__
 import requests, time, sys, configparser, json, platform, datetime
 from urllib3.exceptions import InsecureRequestWarning
 from os.path import expanduser
 import fridagram as fg
 import logging
 import logging.handlers
+
+print(__version__)
 
 # emojis from https://apps.timwhitlock.info/emoji/tables/unicode
 EM_DOWN = "\U0001F621"
@@ -80,12 +83,12 @@ def start():
 	userhome = expanduser("~")
 	maindir = userhome + "/.abteim/"
 	statusfile = maindir + "webstatus.txt"
-	motd = "ABTEIM website monitoring now on " + str(HOSTNAME) +" ..."
+	motd = "ABTEIM " + str(__version__) + " website monitoring now on " + str(HOSTNAME) +" ..."
 
 	# Init Logger
 	logger = logging.getLogger("abt")
 	logger.setLevel(logging.DEBUG)
-	fh = logging.FileHandler(maindir + "abtime.log", mode="w")
+	fh = logging.FileHandler(maindir + "abteim.log", mode="w")
 	formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 	fh.setFormatter(formatter)
 	logger.addHandler(fh)
