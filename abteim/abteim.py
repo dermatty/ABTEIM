@@ -85,7 +85,7 @@ def start():
 	# Init Logger
 	logger = logging.getLogger("abt")
 	logger.setLevel(logging.DEBUG)
-	fh = logging.FileHandler(maindir + "uptime.log", mode="w")
+	fh = logging.FileHandler(maindir + "abtime.log", mode="w")
 	formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 	fh.setFormatter(formatter)
 	logger.addHandler(fh)
