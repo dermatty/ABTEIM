@@ -1,22 +1,29 @@
-[tool.poetry]
+[project]
 name = "abteim"
-version = "0.2.6"
-description = ""
-authors = ["dermatty <stephan@untergrabner.at>"]
+version = "0.2.7"
+description = "abteim telegram bot"
+authors = [
+    {name = "dermatty",email = "stephan@untergrabner.at"}
+]
+license = "GPL v3"
 readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "fridagram>=0.1.15",
+    "toml>=0.10.2",
+    "importlib>=1.0.4"]
 
 [tool.poetry.dependencies]
-python = "^3.11"
-fridagram = "^0.1.15"
-toml = "^0.10.2"
-importlib = "^1.0.4"
+fridagram = { source = "btec" }
+python = ">=3.11,<4.0"
 
 [tool.poetry.scripts]
 abteim = "abteim.abteim:start"
 
 [[tool.poetry.source]]
-name = "etec"
-url = "http://etec.iv.at:8123"
+name = "btec"
+url = "http://btec.iv.at:8123"
 priority = "supplemental"
 
 [build-system]
